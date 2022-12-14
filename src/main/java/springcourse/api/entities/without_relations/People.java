@@ -36,8 +36,6 @@ public class People implements Serializable{
 	@Column(name = "bornDateTime")
 	@CreatedDate
 	private LocalDateTime bornDateTime;
-
-	
 	
 	public People(Long id_people, String name, Integer age, LocalDateTime bornDateTime) {
 		super();

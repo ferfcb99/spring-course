@@ -23,12 +23,21 @@ public class PeopleService implements IPeopleService<People>{
 
 	@Override
 	public People getById(Long id) {
-		return null;
+		People people = this.peopleDao.getById(id);
+		return people;
 	}
 
 	@Override
 	public People deleteById(Long id) {
-		// TODO Auto-generated method stub
+		try {
+			People people = getById(id);
+			if(people != null) {
+				this.peopleDao.deleteById(id);
+				return people;
+			}
+		}catch(Exception e) {
+			return null;
+		}
 		return null;
 	}
 
@@ -37,5 +46,11 @@ public class PeopleService implements IPeopleService<People>{
 		People people = this.peopleDao.save(entity);
 		return people;
 	}
+	
+	
+	
+	
+	
 
 }
+

@@ -2,9 +2,6 @@ package springcourse.api.interfaces.services.without_relations.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-
-
 
 public interface IPeopleService<T> {
 	

@@ -20,8 +20,9 @@ import springcourse.api.entities.without_relations.People;
 import springcourse.api.services.servwithout_relations.PeopleService;
 
 // http://localhost:8084/
-// http://localhost:8084/api/v1/people-controller
-@RestController(value = "api/v1/people-controller")
+// http://localhost:8084/api/v1/people-controller/getAll
+@RestController
+@RequestMapping(value = "api/v1/people-controller")
 public class PeopleController implements IPeopleController<People> {
 
     @Autowired

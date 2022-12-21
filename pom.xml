@@ -13,7 +13,7 @@
 	<artifactId>spring-course</artifactId>
 	<version>1.0</version>
 	<name>spring-course</name>
-	<description>Proyecto de confirmacion de relaciones con Spring y JPA</description>
+	<description>Backend Spring boot y angular</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

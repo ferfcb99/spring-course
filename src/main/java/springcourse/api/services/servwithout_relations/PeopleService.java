@@ -46,6 +46,11 @@ public class PeopleService implements IPeopleService<People>{
 		People people = this.peopleDao.save(entity);
 		return people;
 	}
+
+	@Override
+	public List<People> createOrUpdateList(List<People> people) {
+		return null;
+	}
 	
 	
 	

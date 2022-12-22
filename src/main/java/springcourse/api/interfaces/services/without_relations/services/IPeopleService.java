@@ -13,4 +13,6 @@ public interface IPeopleService<T> {
 	
 	public T createOrUpdate(T entity);
 	
+	public List<T> createOrUpdateList(List<T> people);
+	
 }

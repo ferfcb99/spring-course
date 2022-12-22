@@ -15,5 +15,7 @@ public interface IPeopleController<T> {
 	ResponseEntity<Response<T>> deleteById(Long id);
 	
 	ResponseEntity<Response<T>> createOrUpdate(T entity);
+	
+	ResponseEntity<Response<List<T>>> createOrUpdateList(List<T> entities);
 
 }

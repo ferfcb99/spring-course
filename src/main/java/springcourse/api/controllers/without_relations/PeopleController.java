@@ -65,9 +65,12 @@ public class PeopleController implements IPeopleController<People> {
     }
 
 	@Override
-	public ResponseEntity<Response<List<People>>> createOrUpdateList(List<People> entities) {
-		// TODO Auto-generated method stub
-		return null;
+	@ResponseStatus(HttpStatus.OK)
+    @RequestMapping(method = RequestMethod.POST, value = "/createOrUpdateList", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response<List<People>>> createOrUpdateList(@RequestBody List<People> entities) {
+		return ResponseEntity
+                .ok(new Response<>(String.valueOf(HttpStatus.OK), this.peopleService.createOrUpdateList(entities),
+                        Constants.CREATE_DATA_SUCCESSFULLY));
 	}
 
 }

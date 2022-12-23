@@ -49,7 +49,7 @@ public class PeopleService implements IPeopleService<People>{
 
 	@Override
 	public List<People> createOrUpdateList(List<People> people) {
-		return null;
+		return this.peopleDao.saveAllAndFlush(people);
 	}
 	
 	

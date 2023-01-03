@@ -26,8 +26,8 @@ import springcourse.api.publics.Constants;
 // http://localhost:8084/
 // http://localhost:8084/api/v1/people-controller/getAll
 @RestController
+@CrossOrigin(origins = "http://localhost:4200/")
 @RequestMapping(value = "api/v1/people-controller")
-@CrossOrigin(value = "http://localhost:4200/")
 public class PeopleController implements IPeopleController<People> {
 
 	@Autowired

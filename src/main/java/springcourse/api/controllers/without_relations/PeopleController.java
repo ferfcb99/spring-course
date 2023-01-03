@@ -6,6 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+<<<<<<< HEAD
+=======
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+>>>>>>> ivan_dev
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +27,9 @@ import springcourse.api.publics.Constants;
 
 // http://localhost:8084/
 // http://localhost:8084/api/v1/people-controller/getAll
+@CrossOrigin(value = "http://localhost:4200/read/")
 @RestController
-@RequestMapping(value = "api/v1/people-controller")
+//@RequestMapping(value = "api/v1/people-controller")
 public class PeopleController implements IPeopleController<People> {
 
 	@Autowired

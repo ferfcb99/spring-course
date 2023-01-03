@@ -26,48 +26,49 @@ import springcourse.api.publics.Constants;
 @RequestMapping(value = "api/v1/people-controller")
 public class PeopleController implements IPeopleController<People> {
 
-    @Autowired
-    PeopleService peopleService;
-    
-    Constants constants = new Constants();
+	@Autowired
+	PeopleService peopleService;
 
-    @Override
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(method = RequestMethod.GET, value = "/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Response<List<People>>> getAll() {
-        return ResponseEntity
-                .ok(new Response<>(String.valueOf(HttpStatus.OK), this.peopleService.getAll(), Constants.GET_DATA_SUCCESSFULLY));
-    }
-
-    @Override
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(method = RequestMethod.GET, value = "/getById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Response<People>> getById(@PathVariable Long id) {
-        return ResponseEntity
-                .ok(new Response<>(String.valueOf(HttpStatus.OK), this.peopleService.getById(id), Constants.GET_DATA_SUCCESSFULLY));
-    }
-
-    @Override
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(method = RequestMethod.DELETE, value = "/deleteById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Response<People>> deleteById(@PathVariable Long id) {
-        return ResponseEntity
-                .ok(new Response<>(String.valueOf(HttpStatus.OK), this.peopleService.deleteById(id), Constants.DELETE_DATA_SUCCESSFULLY));
-    }
-
-    @Override
-    @ResponseStatus(HttpStatus.OK)
-    @RequestMapping(method = RequestMethod.POST, value = "/createOrUpdate", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Response<People>> createOrUpdate(@RequestBody People entity) {
-        return ResponseEntity
-                .ok(new Response<>(String.valueOf(HttpStatus.OK), this.peopleService.createOrUpdate(entity),
-                        Constants.CREATE_DATA_SUCCESSFULLY));
-    }
+	Constants constants = new Constants();
 
 	@Override
-	public ResponseEntity<Response<List<People>>> createOrUpdateList(List<People> entities) {
-		// TODO Auto-generated method stub
-		return null;
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(method = RequestMethod.GET, value = "/getAll", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response<List<People>>> getAll() {
+		return ResponseEntity.ok(new Response<>(String.valueOf(HttpStatus.OK), this.peopleService.getAll(),
+				Constants.GET_DATA_SUCCESSFULLY));
+	}
+
+	@Override
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(method = RequestMethod.GET, value = "/getById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response<People>> getById(@PathVariable Long id) {
+		return ResponseEntity.ok(new Response<>(String.valueOf(HttpStatus.OK), this.peopleService.getById(id),
+				Constants.GET_DATA_SUCCESSFULLY));
+	}
+
+	@Override
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteById/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response<People>> deleteById(@PathVariable Long id) {
+		return ResponseEntity.ok(new Response<>(String.valueOf(HttpStatus.OK), this.peopleService.deleteById(id),
+				Constants.DELETE_DATA_SUCCESSFULLY));
+	}
+
+	@Override
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(method = RequestMethod.POST, value = "/createOrUpdate", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response<People>> createOrUpdate(@RequestBody People entity) {
+		return ResponseEntity.ok(new Response<>(String.valueOf(HttpStatus.OK),
+				this.peopleService.createOrUpdate(entity), Constants.CREATE_DATA_SUCCESSFULLY));
+	}
+
+	@Override
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(method = RequestMethod.POST, value = "/createOrUpdateList", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Response<List<People>>> createOrUpdateList(@RequestBody List<People> entities) {
+		return ResponseEntity.ok(new Response<>(String.valueOf(HttpStatus.OK),
+				this.peopleService.createOrUpdateList(entities), Constants.CREATE_DATA_SUCCESSFULLY));
 	}
 
 }
